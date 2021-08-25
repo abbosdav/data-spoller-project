@@ -1,14 +1,11 @@
 const spollersArray = document.querySelectorAll("[data-spollers]");
-console.log(spollersArray,'spollers array');
-
-
 
 if(spollersArray.length > 0){
 
     //  For simple spollers
 
     const spollersRegular = Array.from(spollersArray).filter(function filtred(item, index, self){
-            return !item.dataset.spollers.split(",")[0];
+           return !item.dataset.spollers.split(",")[0];
         }
     )
     if (spollersRegular.length > 0){
@@ -80,13 +77,10 @@ if(spollersArray.length > 0){
     // Initing
 
     function initSpollers(spollersArray, matchMedia = false){
-        var isl= spollersArray
-        var matchM= matchMedia
-        console.log(isl, 'isl');
-        console.log(matchM, 'islllll');
-
+        console.log(spollersArray);
         spollersArray.forEach(spollersBlock =>{
             spollersBlock = matchMedia ? spollersBlock.item : spollersBlock;
+            console.log(spollersBlock,'1spollersBlock');
             if(matchMedia.matches || !matchMedia){
                 spollersBlock.classList.add("init");
                 initSpollerBody(spollersBlock);
@@ -95,7 +89,7 @@ if(spollersArray.length > 0){
             else{
                 spollersBlock.classList.remove("init");
                 initSpollerBody(spollersBlock, false);
-                spollersBlock.removeEventListener("click", setSpollerAction);
+                // spollersBlock.removeEventListener("click", setSpollerAction);
             }
         })
     }
@@ -103,19 +97,20 @@ if(spollersArray.length > 0){
     // Work width contents
 
     function initSpollerBody(spollersBlock, hideSpollerBody = true){
-        const spollersTitles = document.querySelectorAll("[data-spoller]");
-        if(spollersTitles.length > 0){
-            spollersTitles.forEach(spollersTitle =>{
+        const spollerTitles = document.querySelectorAll("[data-spoller]");
+        console.log(spollerTitles,'titles');
+
+        if(spollerTitles.length > 0){
+            spollerTitles.forEach(spollerTitle =>{
                 if(hideSpollerBody){
-                    spollersTitle.removeAttribute('tabindex');
-                    if(!spollersTitle.classList.contains("active")){
-                        spollersTitle.nextElementSibling.hidden = true;
+                    spollerTitle.removeAttribute('tabindex');
+                    if(spollerTitle.classList.contains("active")){
+                        spollerTitle.nextElementSibling.hidden = true;
                     }
                 }
                 else{
-                    spollersTitle.setAttribute('tabindex', '-1');
-                    spollersTitle.nextElementSibling.hidden = false;
-
+                    spollerTitle.setAttribute('tabindex', '-1');
+                    spollerTitle.nextElementSibling.hidden = false;
                 }
             })
         }
@@ -157,7 +152,7 @@ let slideUp = (target, duration) =>{
         console.log(target);
         target.classList.add('slide');
         target.style.transitionProperty = 'height','margin','padding';
-        target.style.transitionDuration = duration +'ms';
+        target.style.transitionDuration = 500 +'ms';
         target.style.height = target.offsetHeight + 'px';
         target.offsetHeight;
         target.style.owerflow = 'hidden';
@@ -185,11 +180,11 @@ let slideDown = (target, duration) =>{
     if(!target.classList.contains('slide')){
         target.classList.add('slide');
         if(target.hidden){
-            console.log(target,'target');
             target.hidden = false
         };
 
         let height =target.offsetHeight;
+        console.log(height,"height");
         target.style.owerflow = 'hidden';
         target.style.height = 0;
         target.style.paddingTop = 0;

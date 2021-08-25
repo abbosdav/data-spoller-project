@@ -56,10 +56,10 @@ button:active{
     transition: transform 0.3s ease 0s;
 }
 .block.init .block__title::after{
-    transform: rotate(90deg);
+    transform: rotate(0deg);
 } 
  .block.init .block__title.active::after{
-    transform: rotate(0deg);
+    transform: rotate(-90deg);
 }
 .block__text{
     padding: 0 10px 10px;
