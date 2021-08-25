@@ -1,0 +1,67 @@
+
+button:focus{
+    outline: none;
+}
+button:hover{
+    cursor: pointer;
+}
+button:active{
+    color: transparent;
+}
+.wrapper{
+    margin: 0 auto;
+    width: 1240px;
+}
+.block {
+    margin-bottom: 30px;
+}
+.block-1 .block__item{
+    background-color:rgb(221, 13, 193);
+}
+.block-2 .block__item{
+    background-color:rgb(58, 149, 240);
+}
+.block-3 .block__item{
+    background-color:rgb(60, 213, 147);
+}
+.block .block__item{
+    margin-bottom: 3px;
+    overflow: hidden;
+}
+
+.block__title{
+    border: unset;
+    position: relative;
+    width: 100%;
+    text-align: left;
+    font-size: 18px;
+    background-color: transparent;
+    color: #fff;
+    padding: 20px 10px;
+}
+
+ .block.init .block__title{
+     cursor: pointer;
+     padding: 10px 40px 10px 10px;
+ }
+
+.block.init .block__title::before,.block.init .block__title::after{
+    content: "";
+    width: 20px;
+    height: 2px;
+    background-color: #fff;
+    right: 10px;
+    top: 20px;
+    position: absolute;
+    transition: transform 0.3s ease 0s;
+}
+.block.init .block__title::after{
+    transform: rotate(90deg);
+} 
+ .block.init .block__title.active::after{
+    transform: rotate(0deg);
+}
+.block__text{
+    padding: 0 10px 10px;
+    line-height: 130%;
+}
